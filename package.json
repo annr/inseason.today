@@ -1,0 +1,15 @@
+{
+  "name": "inseason.today",
+  "version": "1.0.0",
+  "description": "Find out what fruits and vegetables are in season today. Eat the best healthy and delicious produce.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ann Robson",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.10"
+  }
+}
