@@ -15,7 +15,8 @@
  */
 
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 html, body {
   padding: 0;
@@ -62,9 +63,9 @@ body {
   width: 100%;
   height: 56px;
   color: #FFF;
-  background: #FF8C00;
+  background: #FF8800;
   position: fixed;
-  font-size: 20px;
+  font-size: 28px;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
   padding: 16px 16px 0 16px;
   will-change: transform;
@@ -108,9 +109,7 @@ body {
 }
 
 main {
-  padding-top: 60px;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-top: 70px;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
@@ -120,29 +119,102 @@ main {
   -webkit-overflow-scrolling: touch;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(260px, 1fr));
-}
-
-.card {
+.produce-item {
   position: relative;
   box-sizing: border-box;
   background: #fff;
-  border-radius: 2px;
-  margin: 10px;
-  height: 300px;
+  border-radius: .25rem;
   overflow: hidden;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); 
 }
 
-.item-image {
-  display: block;
-  height: 140px;
-  width: 100%; 
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: 140px 140px;
+
+.item-info {
+  font-size: 14px;
+  position: absolute;
+  padding: 1.2rem;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  top: 100%;
+}
+
+.item-info p {
+  margin-top: 10px;
+}
+
+.produce-item {
+  margin: 0 0 1rem 0;
+}
+
+@media (min-width: 500px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(230px, 1fr));
+  }
+  .produce-item {
+    margin: 10px;
+    height: 300px;
+  }
+  .item-body {
+    padding: 0.5rem 1.2rem;
+    font-size: 14px;
+    overflow: hidden;
+  }
+  .produce-item > img {
+    margin: 0 auto;
+    display: block;
+    height: 100px;
+    width: 100px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 140px 140px;
+  }
+  main {
+    padding-left: 5px;
+    padding-right: 5px;
+  } 
+}
+@media (max-width: 499px) {
+  .produce-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    margin: 0 0 1rem 0;
+  }
+  .produce-item > img {
+    width: 90px;
+    height: 90px;
+    margin: 0 1rem 0 0;
+  }
+  .produce-item > div {
+    flex: 1;
+  }
+  .produce-item h2 {
+    font-weight: 500;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3em;
+    line-height: 130%;
+  }
+  .item-body {
+    font-size: 14px;
+  }
+  main {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .item-description {
+    margin-bottom: 0;
+    margin-top: 10px;
+  }
+  .item-info {
+    padding: 0.75rem 0;
+    font-size: 12px;
+    padding-right: 40px;
+  }
+  .item-info p {
+    margin-top: 5px;
+  }
 }
 
 .activator {
@@ -153,12 +225,9 @@ main {
   -webkit-box-flex: 1;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  padding: 0.5rem 1.2rem;
   position: relative;
-  font-size: 14px;
   line-height: 130%;
   position: relative;
-  overflow: hidden;
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -167,33 +236,6 @@ main {
 .item-name{
   margin-top: 0;
 }
-
-/* ITEM BEST TO DEVELOP */
-.item-best {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 18px;
-  width: 120px;
-  line-height: 1.4;
-  background-color: #FF8C00;
-  opacity: 0.5;
-  color: #fff;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: smaller;
-}
-
-.item-overripe {
-  background-color: #FF8C00;
-  opacity: 0.5;
-}
-
-.item-underripe {
-  background-color: #008000;
-  opacity: 0.4;
-}
-/* ITEM BEST */
 
 h5 {
   font-size: 1.1rem;
@@ -205,25 +247,11 @@ h5 {
 
 h6 {
   font-size: 1.0rem;
-  color: #FF8C00;
+  color: #e26600;
   font-family: inherit;
   font-weight: 500;
   line-height: 1.2;
   margin: 0;
-}
-
-.item-info {
-  font-size: 14px;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  padding: 1.2rem;
-  background-color: #fff;
-  top: 100%;
-}
-
-.item-info p {
-  margin-top: 10px;
 }
 
 .reveal {
@@ -256,11 +284,6 @@ h6 {
     to {
         top: 100%;
     }
-}
-.icon-right {
-    position: absolute;
-    right: 0.5rem;
-    cursor: pointer;
 }
 
 /* Loader is not used currently.
