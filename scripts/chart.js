@@ -62,6 +62,7 @@
     //let row = app.produceRow.cloneNode(true);
     let row = document.createElement('tr');
     let nameCol = document.createElement('td');
+    nameCol.setAttribute('class', 'name-cell');
     nameCol.textContent = item.name;
     row.appendChild(nameCol);
     [...Array(12).keys()].forEach(function(month) {
