@@ -12,9 +12,29 @@
   <link rel="stylesheet" type="text/css" href="styles/inline.css">
   <!-- TODO add manifest here -->
 </head>
-<body>
+<body class="today">
   <header class="header">
-    <h1 class="header__title">In Season Today</h1>
+    <a class="site-name" href="/">In Season Today</a>
+    <div class="icon-hamburger icon-right" id="menu-toggle">
+      <svg class="hamburger" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path fill="#fff" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+      </svg>
+    </div>
+    <ul id="menu-list" class="menu-list menu--show">
+      <li class="menu-item active">
+        Today <span class="sr-only">(current)</span>
+      </li>
+      <li class="menu-item">
+          <a class="menu-link" href="/chart.html">Chart</a>
+      </li>
+      <li class="menu-item">
+          <a class="menu-link" href="/about.html">About</a>
+      </li>
+      <!-- <li class="menu-item">
+        <a class="menu-link" href="/contact.html">Contact</a>
+      </li> -->
+    </ul>
   </header>
   <main class="main">
     <div class="container">
@@ -40,7 +60,7 @@
      </div>
   </main>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-
   <script src="scripts/app.js" async></script>
+  <script src="scripts/menu.js" async></script>
 </body>
 </html>
