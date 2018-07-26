@@ -15,17 +15,23 @@
 (function() {
   'use strict';
 
+  let urlParams = new URLSearchParams(window.location.search);
+  let testDate = urlParams.get('testDate')
+
   let app = {
     isLoading: true,
     //spinner: document.querySelector('.loader'),
     cardTemplate: document.querySelector('.cardTemplate'),
     container: document.querySelector('.container'),
-    toggleInfoOn: function(elem) {
-        elem.setAttribute('class', 'item-info reveal');
+    toggleInfo: function(card) {
+      let info = card.getElementsByClassName('item-info')[0]
+      if ($(info).hasClass('reveal')) {
+        info.setAttribute('class', 'item-info hide');
+      } else {
+        info.setAttribute('class', 'item-info reveal');
+      }
     },
-    toggleInfoOff: function(elem) {
-      elem.setAttribute('class', 'item-info hide');
-    },
+    testDate: new Date(),
     //dateLastUpdated: new Date(),
     months: [
       'Jan',
@@ -51,7 +57,8 @@
 
   // Shows seasonal produce 
   app.updateSeasonal = function() {
-    let today = new Date();
+    //let today = new Date();
+    let today = app.testDate;
     let items = app.produce;
     let selectedItems = [];
     items.forEach(function(item) {
@@ -89,20 +96,21 @@
   app.getCard = function(item) {
     // add card to UI
     let card = app.cardTemplate.cloneNode(true);
-    let backgroundImageStyleValue = 'background-image: url(images/produce/'+ item.label + '.jpg);'
+    //let backgroundImageStyleValue = 'background-image: url(images/produce/'+ item.label + '.jpg);'
     card.classList.remove('cardTemplate');
     card.querySelector('.item-name').textContent = item.name;
     card.querySelector('.item-description').textContent = item.description;
     card.querySelector('.item-image').setAttribute('alt', app.getName(item));
-    card.querySelector('.item-image').setAttribute('style', backgroundImageStyleValue);
-    card.querySelector('.item-info-title').textContent = app.getName(item);
+    card.querySelector('.item-image').setAttribute('src', 'images/produce/'+item.label+'.jpg');
     card.querySelector('.item-info-how-to-choose-details').textContent = item.choose;
     if (item.choose) {
       card.querySelector('.item-info-how-to-choose-details').textContent = item.choose;
+      card.querySelector('.item-info-how-to-choose-title').textContent += ' ' + item.name;
       card.querySelector('.item-info-how-to-choose').removeAttribute('hidden');
     }
     if (item.store) {
       card.querySelector('.item-info-how-to-store-details').textContent = item.store;
+      card.querySelector('.item-info-how-to-store-title').textContent += ' ' + item.name;
       card.querySelector('.item-info-how-to-store').removeAttribute('hidden');
     }
     card.removeAttribute('hidden');
@@ -223,16 +231,10 @@
   }
 
   app.prepareHandlers = function(card) {
-    // add listener to activators and close link:
-    card.querySelector('.close').addEventListener('click', function() {
-      app.toggleInfoOff(card.querySelector('.item-info'));
+    // add card toggle handler
+    card.addEventListener('click', function(event) {
+      app.toggleInfo(this);
     });
-    let openers = card.querySelectorAll('.activator');
-    for (let i = 0; i < openers.length; i++) {
-      openers[i].addEventListener('click', function(event) {
-        app.toggleInfoOn(card.querySelector('.item-info'));
-      });
-    }
   }
 
   app.addCard = function(card) {
@@ -283,9 +285,9 @@
           6
        ],
        "months_display":"May — July",
-       "description":"Apricots came from ancient China and were dispersed on The Silk Road, finding roots in Persia. A cute fruit, the poet John Ruskin said the apricot is \"shining in sweet brightness of golden velvet.\"",
+       "description":"Apricots come from ancient China and found roots in Persia by The Silk Road. A cute fruit, the poet John Ruskin said apricots are \"shining in sweet brightness of golden velvet.\"",
        "choose":"Choose soft but not mushy apricots with a nice deep golden color. The pink blush does not provide useful information.",
-       "store":"Stored at cool room temperature or refridgerate in a sealed plastic bag.",
+       "store":"Stored at cool room temperature or refrigerate in a sealed plastic bag.",
        "tips":"In Southern California we are fortunate to have some orchards that still produce the lovely old-fashioned variety Blenheim. These are troublesome to grow, but their flavor and texture is unrivaled.",
        "peakMonths":[
           5
@@ -318,7 +320,7 @@
        "popularity":5
     },
     {
-       "name":"Asian pears",
+       "name":"Asian Pears",
        "includes":"",
        "label":"asian-pears",
        "months":[
@@ -370,8 +372,8 @@
        ],
        "months_display":"February — July",
        "description":"Alligator pear or the Nahuatl word for \"testicle\" -- whatever you want to call them -- avocados are a one of the best reasons to be in California.",
-       "choose":"Avocados ONLY ripen after picked, and ripening takes a week or more. Really ripe avocados will give when they are squeezed gently. Buying firm or hard avocados and waiting for them to ripen at home is a safe bet. Many get bruised in the store.",
-       "store":"Keep avocados at room temperature until they are fully ripe.",
+       "choose":"Avocados ripen a week or so after being picked. They are ready to eat when they give a little when gently squeezed. Buying hard avocados to ripen at home is an option.",
+       "store":"Keep at room temperature until fully ripe.",
        "tips":"The flesh of avocados will begin to blacken as soon as the fruit is cut, so don't try to prepare them in advance.",
        "peakMonths":[
           4
@@ -401,7 +403,7 @@
        "popularity":5
     },
     {
-       "name":"Bell peppers",
+       "name":"Bell Peppers",
        "includes":"",
        "label":"bell-peppers",
        "months":[
@@ -420,7 +422,7 @@
        "popularity":5
     },
     {
-       "name":"Blood oranges",
+       "name":"Blood Oranges",
        "includes":"",
        "label":"blood-oranges",
        "months":[
@@ -462,7 +464,7 @@
        "popularity":5
     },
     {
-       "name":"Brussels sprouts",
+       "name":"Brussels Sprouts",
        "includes":"",
        "label":"brussels-sprouts",
        "months":[
@@ -557,9 +559,9 @@
           6
        ],
        "months_display":"May — July",
-       "description":"The perfect, snack-sized fruit. Also, seasonal cherries are super delicious.",
-       "choose":"Cherries should have taut, shiny, smooth skins. For the most common varieties (Bing, for instance), the darker the color the more ripe and sweet. Stems should be green and springy.",
-       "store":"Refrigerate cherries in a tightly sealed plastic bag; they should last at least a week.",
+       "description":"Cherries are closely related to almonds and are the perfect, snack-sized fruit. Of course, seasonal cherries are most delicious.",
+       "choose":"Look for taut, shiny, smooth skins. For the most common cherry variety (Bing), the darker the sweeter. Stems should be green and springy.",
+       "store":"When sealed tightly and refrigerated, cherries last about a week.",
        "tips":"Cherries are also closely related to almonds; if you want to beef up the flavor of cherries in a dish, add just a drop or two of almond extract.",
        "peakMonths":[
           5
@@ -600,7 +602,7 @@
        ],
        "months_display":"May — September",
        "description":"It's wonderful that cucumbers arrive right when we need them. Eat cucumbers in the summer to stay cool. If you want to stay, that is, cool as a cucumber.",
-       "choose":"Choose firm, deep green cucumbers without soft spots or shrivelling.",
+       "choose":"Choose firm, deep green cucumbers without soft spots or shriveling.",
        "store":"Store tightly wrapped in the refrigerator or in the crisper drawer.",
        "tips":"Most cucumbers don't need to be peeled, but if the skin feels particularly thick, or if they've been waxed, then you should. Also, take a bite — if the cucumber is excessively bitter, peel them because the compounds that cause bitterness are usually located right under the skin.",
        "peakMonths":[
@@ -619,9 +621,9 @@
           9
        ],
        "months_display":"July — October",
-       "description":"Eggplant is a strange, special fruit. It's related to another fruit we don't think of as a fruit: tomatoes. It's also related to the potato, which is totallly not a fruit.",
+       "description":"Eggplant is a strange, special fruit. It's related to another fruit we don't think of as a fruit: tomatoes. It's also related to the potato, which is totally not a fruit.",
        "choose":"Eggplants should be firm, otherwise they could be bitter. The stem should be green and not dried out or brown.",
-       "store":"Refrigerate if you don't use them within a day or so, but not for too long. Eggplants suffer from chill damage maybe like their cousin, tomato.",
+       "store":"Refrigerate if you don't use them within a day or so, but not too long. Eggplants suffer from chill damage.",
        "tips":"Eggplant is one of the best vegetables on the grill – cut it into thick slices, brush with garlic-flavored olive oil and cook over a medium fire until soft. Then brush with more olive oil and sprinkle with vinegar and salt.",
        "peakMonths":[
           7,
@@ -630,7 +632,7 @@
        "popularity":7
     },
     {
-       "name":"English peas",
+       "name":"English Peas",
        "includes":"",
        "label":"english peas",
        "months":[
@@ -649,7 +651,7 @@
        "popularity":5
     },
     {
-       "name":"Fava beans",
+       "name":"Fava Beans",
        "includes":"",
        "label":"fava beans",
        "months":[
@@ -700,7 +702,7 @@
        "months_display":"June — August",
        "description":"When nicely ripe, figs are truly nature's candy. If you don't have a fig tree, you should find someone who does. We all need someone with a fig tree.",
        "choose":"Figs do not continue to ripen after harvest, and sweet, ripe figs are fragile; therefore, good figs are hard to get. They can be wrinkly and soft as long as they don't smell overripe.",
-       "store":"Consume quickly and refrigerate.",
+       "store":"Consume quickly and/or refrigerate.",
        "tips":"Some green fig varieties are grown primarily to be dried – they have thick skins and the flavors are unremarkable. But if you see Adriatic figs, snap them up, they're among the best you'll ever taste.",
        "peakMonths":[
           6
@@ -708,7 +710,7 @@
        "popularity":5
     },
     {
-       "name":"Cherry tomatoes",
+       "name":"Cherry Tomatoes",
        "includes":"",
        "label":"cherry-tomatoes",
        "months":[
@@ -740,7 +742,7 @@
           6
        ],
        "months_display":"March — July",
-       "description":"Grapefruits are the newest and the biggest in the citrus family, making them the \"big baby\".",
+       "description":"Grapefruits are \"Big Baby\" of the citrus family: the newest and the biggest.",
        "choose":"Like all citrus, they should be heavy for their size; they are full of juice. Also use your nose.",
        "store":"Refrigerating or store at room temperature.",
        "tips":"Though grapefruit aren't nearly as trendy as blood oranges, their complex flavor lends itself to just as many – if not more – different uses. Try making a beet salad with grapefruit.",
@@ -760,7 +762,7 @@
           9
        ],
        "months_display":"July — October",
-       "description":"Wine drinkers aren't the only people who get the nutritional values of grapes ;) There are many wonderful eating grapes, so vine out on varieties. Grapeseed oil is high in omega-6 fatty acids (ie. magical).",
+       "description":"Wine drinkers aren't the only people who get the nutritional values of grapes ;) Vine out to the many table grape varieties.",
        "choose":"Grapes should be heavy for their size with taut skins.",
        "store":"Store tightly wrapped in the refrigerator. After washing, have a paper towel beneath them to absorb the moisture.",
        "tips":"For a real treat, late in the season look for Thompson Seedless – the predominant California variety – that have begun to turn golden. The flavor is terrific.",
@@ -771,7 +773,7 @@
        "popularity":5
     },
     {
-       "name":"Green beans",
+       "name":"Green Beans",
        "includes":"",
        "label":"green-beans",
        "months":[
@@ -781,7 +783,7 @@
           7
        ],
        "months_display":"May — August",
-       "description":"Chinese dry fried and sweet, or quickly blanched and acid dressed for a tangy crunch: I love these! Eat your green beans.",
+       "description":"Chinese dry fried and sweet, quickly blanched and dressed for a tangy crunch, and many other ways...green beans are nutritious and delicious.",
        "choose":"Choose crisp and firm green beans without spots or signs of discoloring.",
        "store":"Refrigerate in a plastic bag.",
        "tips":"Though these are sometimes still called “string” beans, in most modern varieties that filament that runs the length of the pod has been bred out. Still, it's worth checking.",
@@ -792,7 +794,7 @@
        "popularity":7
     },
     {
-       "name":"Green garlic",
+       "name":"Green Garlic",
        "includes":"",
        "label":"green-garlic",
        "months":[
@@ -811,7 +813,7 @@
        "popularity":5
     },
     {
-       "name":"Hardy herbs",
+       "name":"Hardy Herbs",
        "includes":"rosemary,thyme,oregano",
        "label":"hardy-herbs",
        "months":[
@@ -851,7 +853,7 @@
        "popularity":5
     },
     {
-       "name":"Lima beans",
+       "name":"Lima Beans",
        "includes":"",
        "label":"lima beans",
        "months":[
@@ -900,8 +902,8 @@
           8
        ],
        "months_display":"July — September",
-       "description":"You'll find a great variety of melons at farmer's markets, some with incredible perfumes. Branch out! You don't have to stick to canteloupes. Melons are sweet and pair well with salty.",
-       "choose":"With the exception of honeydews, the best indicator of a delicious melon is smell. Good ones will have an intense perfume. Look for a creamy color and melons that feel heavy for their size.",
+       "description":"A great variety of melons is found at farmer's markets, some with incredible perfume and flavor. They are sweet and pair well with salty foods like prosciutto.",
+       "choose":"With the exception of honeydews, the best indicator of a delicious melon is its perfume. Choose heavy melons with a creamy rind color.",
        "store":"Store them at room temperature and if you like to eat them cold, refrigerate them overnight.",
        "tips":"Melons are extremely sweet, so try pairing them with salty ingredients, such as thinly sliced prosciutto or country ham, or with blue cheese.",
        "peakMonths":[
@@ -910,7 +912,7 @@
        "popularity":5
     },
     {
-       "name":"Meyer lemon",
+       "name":"Meyer Lemons",
        "includes":"",
        "label":"meyer-lemons",
        "months":[
@@ -944,7 +946,7 @@
           9
        ],
        "months_display":"April — October",
-       "description":"Here is your heads-up to look for berries, all berries: red abnd golden raspberries, blackberries, olallieberries, boysenberries, loganberries, and local blueberries.",
+       "description":"Here is your heads-up to look for berries, all berries: red and golden raspberries, blackberries, olallieberries, boysenberries, loganberries, and local blueberries.",
        "choose":"Look for vibrantly colored berries that are not too soft. You can check the bottom of the container for bad berries that are hidden.",
        "store":"Refrigerated tightly sealed.",
        "tips":"Rinse berries in a strainer under gently running water just before serving.",
@@ -975,7 +977,7 @@
        "popularity":5
     },
     {
-       "name":"Navel oranges",
+       "name":"Navel Oranges",
        "includes":"",
        "label":"navel-oranges",
        "months":[
@@ -996,7 +998,7 @@
        "popularity":5
     },
     {
-       "name":"New potatoes",
+       "name":"New Potatoes",
        "includes":"",
        "label":"new potatoes",
        "months":[
@@ -1036,7 +1038,7 @@
        "popularity":3
     },
     {
-       "name":"Passion fruit",
+       "name":"Passion Fruit",
        "includes":"",
        "label":"passion-fruit",
        "months":[
@@ -1045,7 +1047,7 @@
           8
        ],
        "months_display":"July — September",
-       "description":"Stereotypically tropical, we grow passion fruit in the Western United States, and is therefore local to us! Instead of transporting the fruit, the fruit can transport us -- to wonderful Maui.",
+       "description":"Stereotypically tropical, we grow passion fruit in the Western US, so it's local to us! Instead of transporting the fruit, the fruit can transport us -- to Maui.",
        "choose":"Ripe passion fruit are soft and wrinkled. Your nose will help you pick. They continue to ripen.",
        "store":"Store passion fruit in the fridge, tightly wrapped, but use it quickly.",
        "tips":"Passion fruit's pulp is the thing — simply cut the fruit in half and spoon it out. Try serving it over a fruit sorbet.",
@@ -1067,7 +1069,7 @@
        "months_display":"July — September",
        "description":"There's nothing peachier than perfectly seasonal peaches. Well, except for nectarines, which are an option for people who are put off by fuzzy fruit.",
        "choose":"Look for good, deep orange-golden color but most importantly, smell them -- they should be strongly fragrant.",
-       "store":"Ripe peaches and nectarines will give a little bit when held in the hand with pressure. They will continue to ripen a little bit, so you don't have to pick perfectly ripe stone fruits.",
+       "store":"Ripe peaches will give a little bit when held in the hand with pressure. They continue to ripen a bit at home.",
        "tips":"Peaches should be peeled before cooking – cut an “X” in the flower end and blanch them in boiling water until the peel starts to come away. Stop the cooking in an ice water bath and peel with your fingers. Nectarines don't need to be peeled.",
        "peakMonths":[
           6,
@@ -1124,9 +1126,9 @@
           7
        ],
        "months_display":"May — August",
-       "description":"We can do a lot of different things with plums, and there are a lot of types of plum. Brined, dried, made into wine, jams, dumplings... Plums are the meat of onigiri, the salt vehicle of saladitos. We don't quite understand its potential. ",
-       "choose":"Choose",
-       "store":"Plums will continue to ripen after they've been harvested. If your fruit feels a little too hard, leave it at room temperature for a day or two and it will soften. Then, and only then, should you refrigerate it.",
+       "description":"Brined, dried, made into wine, jams, dumplings... Plums are the meat of onigiri, the salt vehicle of saladitos. Even so, I don't think we quite know plum's potential.",
+       "choose":"Choose deeply colored plums that are shiny and firm but not hard.",
+       "store":"Plums continue to ripen after harvest. If your fruit feels a little too hard, leave it at room temperature for a day or two. After that, refrigerate.",
        "tips":"Split a plum along the cleft that runs from stem to flower end and the seed will pop right out.",
        "peakMonths":[
           5,
@@ -1177,7 +1179,7 @@
        "popularity":5
     },
     {
-       "name":"Root vegetables",
+       "name":"Root Vegetables",
        "includes":"parsnips,turnips,rutabagas",
        "label":"root-vegetables",
        "months":[
@@ -1196,7 +1198,7 @@
        "popularity":5
     },
     {
-       "name":"Shelling beans",
+       "name":"Shelling Beans",
        "includes":"",
        "label":"shelling-beans",
        "months":[
@@ -1215,7 +1217,7 @@
        "popularity":5
     },
     {
-       "name":"Fresh herbs",
+       "name":"Fresh Herbs",
        "includes":"basil,cilantro,parsley,mint",
        "label":"soft-herbs",
        "months":[
@@ -1227,7 +1229,7 @@
           9
        ],
        "months_display":"May — October",
-       "description":"Splurge on fresh herbs. For Mexican and Vietnamese food, cilantro is key. Basil is summer pesto, and summer salads. Chopped fine and sprinkled, Parsley is a level-up dish finisher. Mint is weird, but can be right.",
+       "description":"Splurge on fresh herbs! For several cuisines (ex. Mexican), cilantro is key. Basil is wonderful summer pesto and salads. Mint and parsley seem like extra, but aren't.",
        "choose":"Choose herbs that are fresh, deeply green and not wilted. Parsley is the hardiest.",
        "store":"Treat them like cut flowers — stick them upright in a glass of water, drape a plastic bag over top, and keep cool.",
        "tips":"One of the easiest things to do with soft herbs is make a pureed sauce, like pesto. Puree herbs with minced garlic and salt and with the blender running, add olive oil until you have a sauce-y consistency. Adjust seasoning with a little lemon juice and you're there. It's almost impossible to go wrong.",
@@ -1238,7 +1240,7 @@
        "popularity":5
     },
     {
-       "name":"Specialty lettuces",
+       "name":"Specialty Lettuces",
        "includes":"",
        "label":"specialty-lettuces",
        "months":[
@@ -1353,7 +1355,7 @@
           9
        ],
        "months_display":"July — October",
-       "description":"Some people wait for the best tomatoes each year, and feel real saddness when they are gone. But don't feel bad for tomato-heads; they have their priorities straight.",
+       "description":"Some people wait for the best tomatoes each year, and feel real sadness when they are gone. But don't feel bad for tomato-heads; they have their priorities straight.",
        "choose":"Tomatoes should be vibrantly colored with taut, shiny skin. There should be no soft or wrinkly spots.",
        "store":"Avoid refrigerating tomatoes – it destroys fresh tomato flavor. Keep them at room temperature, covered if you like.",
        "tips":"For cooking, choose firm, elongated tomatoes. Peel them by cutting an “X” in the blossom end and blanching them in boiling water until the peel starts to lift away. Transfer them to ice water to stop the cooking and peel with your fingers. You can simply squeeze the seeds out with your hands.",
@@ -1413,8 +1415,8 @@
           8
        ],
        "months_display":"July — September",
-       "description":"Great zukes! Like all sqaush, zuccini's origin is in the Americas. However, the Italians developed this type of squash -- perfecting it for saucy tomato-based comfort foods.",
-       "choose":"Bigger is not better: look for zucchini that are no longer than 6 to 8 inches. They should be firm and free of nicks and cuts. Fresh zucchini has tiny hairs. Darker and thinner zucchinis are more tender but can have richer flavor.",
+       "description":"Great zukes! Like all squash, zucchini's origin is in the Americas. However, Italians perfected this type for saucy tomato-based comfort foods.",
+       "choose":"Look for zucchini that are no longer than 6 to 8 inches. They should be firm and free of nicks and cuts. Darker, thinner zucchinis can have richer flavor.",
        "store":"Keep zucchini tightly wrapped in the refrigerator.",
        "tips":"Though smaller zucchini are best for cooking by themselves, larger zucchini are still good for stuffing and baking.",
        "peakMonths":[
