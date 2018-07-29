@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
   <meta name="keywords" content="in season today, seasonal today, what to eat, seasonal fruits, seasonal vegetables, seasonal eating">
   <meta name="author" content="Ann Robson">
   <link rel="icon" href="/favicon.ico">
-  <title>A prioritized list of seasonal foods in the Western United States - In Season Today</title>
+  <title>A prioritized list of seasonal foods in California - In Season Today</title>
   <link rel="stylesheet" type="text/css" href="styles/inline.css">
   <!-- TODO add manifest here -->
 </head>
@@ -36,24 +36,24 @@
       </li> -->
     </ul>
   </header>
-  <main class="main">
+  <main class="main today">
+    <div class="notice-wrapper">
+      <div class="notice">
+        You're looking at a <a href="/about.html">prioritized list</a> of the best seasonal produce today in California. For all produce, <a href="/chart.html">view the chart</a>.
+      </div>
+    </div>
     <div class="container">
       <div class="card" hidden>
         <div class="cardTemplate produce-item activator" hidden>
-          <img class="item-image">
+          <img class="item-image" alt="placeholder">
           <div class="item-body">
             <h2 class="item-name"></h5>
             <p class="item-description"></p>
             </div>
           <div class="item-info">
-            <div class="item-info-how-to-choose" hidden>
-              <h6 class="item-info-how-to-choose-title">How to Choose</h6>
-              <p class="item-info-how-to-choose-details"></p>
-            </div>
-            <div class="item-info-how-to-store" hidden>
-              <h6 class="item-info-how-to-store-title">How to Store</h6>
-              <p class="item-info-how-to-store-details"></p>
-            </div>
+            <h3 class="item-info-name"></h3>
+            <p class="item-info-how-to-choose" hidden><strong>How to Choose:</strong> <span class="item-info-how-to-choose-text"></span></p>
+            <p class="item-info-how-to-store" hidden><strong>How to Store:</strong> <span class="item-info-how-to-store-text"></span></p>
           </div>
         </div>
       </div>
