@@ -16,6 +16,7 @@
   'use strict';
 
   let header = document.querySelector('.header');
+  let body = document.querySelector('body');
 
   document.getElementById('menu-toggle').addEventListener('click', function() {
     toggleMenuList();
@@ -28,6 +29,14 @@
       header.setAttribute('class', 'header menu--show');
     }
   }
+
+  // write add footer after load
+  setTimeout(function() {
+    let footer = document.createElement('footer');
+    let year = new Date().getFullYear();
+    footer.textContent = 'Copyright ' + year + ' In Season Today';
+    body.appendChild(footer);
+  }, 0);
 
 })();
 
