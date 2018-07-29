@@ -34,7 +34,7 @@
      "peakMonths":[
         5
      ],
-     "popularity":7,
+     "popularity":6,
      "prepared":true
   },
   {
@@ -55,8 +55,7 @@
      "peakMonths":[
         3,
         4,
-        9,
-        10
+        9
      ],
      "popularity":5,
      "prepared":false
@@ -94,7 +93,7 @@
         2,
         3
      ],
-     "popularity":8,
+     "popularity":7,
      "prepared":false
   },
   {
@@ -111,10 +110,13 @@
         7
      ],
      "description":"Alligator pear or the Nahuatl word for \"testicle\" -- whatever you want to call them -- avocados are a one of the best reasons to be in California.",
-     "choose":"Avocados ripen a week or so after being picked. They are ready to eat when they give a little when gently squeezed. Buying hard avocados to ripen at home is an option.",
+     "choose":"Avocados ripen a week or so after being picked. Ripe avocados give a little when gently squeezed. You can buy hard avocados to ripen at home.",
      "store":"Keep at room temperature until fully ripe.",
      "peakMonths":[
-        4
+        3,
+        4,
+        5,
+        6
      ],
      "popularity":7,
      "prepared":true
@@ -134,8 +136,8 @@
      "choose":"Select beets that are heavy for their size and show no surface nicks or cuts. If they're sold with their tops on, the greens are always a good indicator of freshness as they show wilting very quickly (they're also delicious – don't discard them).",
      "store":"Refrigerate in a tightly sealed plastic bag.",
      "peakMonths":[
-        4,
-        5
+        11,
+        0
      ],
      "popularity":5,
      "prepared":false
@@ -163,8 +165,11 @@
      "includes":"",
      "label":"blood-oranges",
      "months":[
+        11,
+        0,
         1,
-        2
+        2,
+        3
      ],
      "description":"Blood oranges get their color from the same anthocyanin pigment that gives raspberries theirs. And though the chemical compound itself has no flavor, there is a shared berry taste between blood oranges and raspberries.",
      "choose":"Select oranges that are heaviest for their size. Color is not a reliable indicator of flavor. Some varieties such as Tarocco, which are usually less “bloody” than others, have the best flavor.",
@@ -192,8 +197,8 @@
      "choose":"Choose broccoli with flower heads that are tightly closed and blue-green, rather than pale green or even yellow. Feel the stock with your fingernail – overgrown broccoli will be too tough to dent and will be stringy when cooked.",
      "store":"For a staple vegetable, broccoli spoils rather quickly. Treat it as you would a lettuce – tightly wrapped in the crisper drawer of the refrigerator. And use it as soon as you can.",
      "peakMonths":[
-        3,
-        4
+        1,
+        2
      ],
      "popularity":5,
      "prepared":false
@@ -212,8 +217,8 @@
      "choose":"Choose Brussels sprouts that are vivid green and are tightly closed. As they sit, the leaves will begin to separate and the edges will yellow. Squeeze the head, it should be hard enough that there is very little give.",
      "store":"Brussels sprouts should be refrigerated in a tightly sealed bag.",
      "peakMonths":[
-        5,
-        6
+        11,
+        0
      ],
      "popularity":5,
      "prepared":false
@@ -223,17 +228,21 @@
      "includes":"",
      "label":"carrots",
      "months":[
+        10,
+        11,
+        0,
         1,
-        2,
-        3,
         4,
-        5
+        5,
+        6
      ],
-     "description":"Once carrots came in one model — fat and orange. Today you can find them in a wide variety of shapes, sizes and colors. And they're more than just ornamental: well-grown carrots are among the sweetest of the root vegetables.",
-     "choose":"The best way to choose carrots is by the greens — they should be fresh and crisp looking. After that, make sure the roots are deeply colored (whatever the color) and vibrant and make sure there are no cracks or deep dings.",
-     "store":"Store carrots tightly wrapped in the crisper drawer. Be sure to remove the tops before storing as they will draw moisture from the roots, wilting them faster.",
+     "description":"Sweet and good for you, while carrots may not help you see in the dark, they do help prevent vision loss.",
+     "choose":"Select by the greens which should be fresh and crisp. Choose deeply colored carrots that have no cracks.",
+     "store":"Remove the tops and store in the crisper drawer, tightly wrapped.",
      "peakMonths":[
-        3
+        11,
+        0,
+        5
      ],
      "popularity":5,
      "prepared":false
@@ -254,8 +263,8 @@
      "choose":"Cauliflower heads should be firm and tightly closed. White varieties should be very pale, with no dark \"sunburned\" spots. Reject any heads that show signs of softness, that's the start of spoilage.",
      "store":"Though it seems durable, cauliflower is extremely perishable. Keep it tightly wrapped in the crisper drawer of the refrigerator.",
      "peakMonths":[
-        3,
-        4
+        1,
+        2
      ],
      "popularity":5,
      "prepared":false
@@ -315,7 +324,7 @@
         6,
         7
      ],
-     "popularity":9,
+     "popularity":7,
      "prepared":true
   },
   {
@@ -323,19 +332,28 @@
      "includes":"",
      "label":"cucumbers",
      "months":[
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+     ],
+     "description":"It's wonderful that cucumbers arrive right when we need them. Eat cucumbers in the summer to stay cool. If you want to stay, that is, cool as a cucumber.",
+     "choose":"Choose firm, deep green cucumbers without soft spots or shriveling.",
+     "store":"Store tightly wrapped in the refrigerator or in the crisper drawer.",
+     "peakMonths":[
+        3,
         4,
         5,
         6,
         7,
         8
      ],
-     "description":"It's wonderful that cucumbers arrive right when we need them. Eat cucumbers in the summer to stay cool. If you want to stay, that is, cool as a cucumber.",
-     "choose":"Choose firm, deep green cucumbers without soft spots or shriveling.",
-     "store":"Store tightly wrapped in the refrigerator or in the crisper drawer.",
-     "peakMonths":[
-        6
-     ],
-     "popularity":8,
+     "popularity":6,
      "prepared":true
   },
   {
@@ -355,7 +373,7 @@
         7,
         8
      ],
-     "popularity":7,
+     "popularity":6,
      "prepared":false
   },
   {
@@ -443,13 +461,13 @@
         6
      ],
      "description":"Hunt for these in the gardens of friends and eat them straight off the plant if you can. They arrive earlier than bigger tomatoes.",
-     "choose":"Choose tomatoes that are vibrantly colored and without soft spots or wrinkling and use your nose. ",
-     "store":"Just as you do other tomatoes: at room temperature.",
+     "choose":"Choose tomatoes that are vibrantly colored and no soft spots or wrinkling. Also, use your nose. ",
+     "store":"Like tomatoes, store at room temperature.",
      "peakMonths":[
         4,
         5
      ],
-     "popularity":7,
+     "popularity":6,
      "prepared":true
   },
   {
@@ -482,7 +500,7 @@
         8,
         9
      ],
-     "description":"Wine drinkers aren't the only people who get the nutritional values of grapes ;) Vine out to the many table grape varieties.",
+     "description":"Wine drinkers aren't the only people who get the nutritional values of grapes ;) There are many different colors and flavors of table grapes to discover.",
      "choose":"Grapes should be heavy for their size with taut skins.",
      "store":"Store tightly wrapped in the refrigerator. After washing, have a paper towel beneath them to absorb the moisture.",
      "peakMonths":[
@@ -509,7 +527,7 @@
         5,
         6
      ],
-     "popularity":7,
+     "popularity":6,
      "prepared":true
   },
   {
@@ -611,15 +629,17 @@
      "includes":"cantaloupe,muskmelon,honeydew",
      "label":"melons",
      "months":[
+        4,
+        5,
         6,
-        7,
-        8
+        7
      ],
      "description":"A great variety of melons is found at farmer's markets, some with incredible perfume and flavor. They are sweet and pair well with salty foods like prosciutto.",
      "choose":"With the exception of honeydews, the best indicator of a delicious melon is its perfume. Choose heavy melons with a creamy rind color.",
      "store":"Store them at room temperature and if you like to eat them cold, refrigerate them overnight.",
      "peakMonths":[
-        7
+        5,
+        6
      ],
      "popularity":5,
      "prepared":true
@@ -661,7 +681,9 @@
      "choose":"Look for vibrantly colored berries that are not too soft. You can check the bottom of the container for bad berries that are hidden.",
      "store":"Refrigerated tightly sealed.",
      "peakMonths":[
-        6
+        5,
+        6,
+        7
      ],
      "popularity":5,
      "prepared":true
@@ -772,14 +794,14 @@
         7,
         8
      ],
-     "description":"There's nothing peachier than perfectly seasonal peaches. Well, except for nectarines, which are an option for people who are put off by fuzzy fruit.",
+     "description":"There's nothing peachier than perfectly seasonal peaches. Well, except for nectarines, which are an alternative for those who who are put off by fuzzy fruit.",
      "choose":"Look for good, deep orange-golden color but most importantly, smell them -- they should be strongly fragrant.",
      "store":"Ripe peaches will give a little bit when held in the hand with pressure. They continue to ripen a bit at home.",
      "peakMonths":[
         6,
         7
      ],
-     "popularity":8,
+     "popularity":7,
      "prepared":false
   },
   {
@@ -891,7 +913,7 @@
      "choose":"Select root vegetables that are firm, with no soft spots or discoloration. If there are tops attached, make sure they're fresh and green. Avoid roots that have lots of hairy secondary roots.",
      "store":"Refrigerate in a tightly sealed plastic bag.",
      "peakMonths":[
-        7
+        11
      ],
      "popularity":5,
      "prepared":false
@@ -1009,8 +1031,9 @@
      "choose":"Orange sweet potatoes are sweeter and moister than the golden ones, which are drier, starchier and nuttier in flavor. If you're making a puree, for example, think about whether you want the finished texture to be dense and buttery (in which case, choose the orange sweet potatoes) or light and creamy (the golden ones).",
      "store":"Sweet potatoes can be stored at cool room temperature.",
      "peakMonths":[
-        4,
-        5
+        11,
+        0,
+        1
      ],
      "popularity":5,
      "prepared":false
@@ -1031,7 +1054,8 @@
      "choose":"Choose tomatillos that are deep green and firm and that have a husk that is definitely dried out and papery. Once tomatillo fruit has started to turn yellow, it loses some of that flavor.",
      "store":"You can keep tomatillos with their husks wrapped in a plastic bag in the refrigerator. They're relatively hardy and will last a couple of weeks.",
      "peakMonths":[
-        5
+        2,
+        8
      ],
      "popularity":5,
      "prepared":false
@@ -1053,7 +1077,7 @@
         7,
         8
      ],
-     "popularity":10,
+     "popularity":7,
      "prepared":true
   },
   {
@@ -1099,17 +1123,17 @@
      "includes":"",
      "label":"zucchini",
      "months":[
+        5,
         6,
-        7,
-        8
+        7
      ],
      "description":"Great zukes! Like all squash, zucchini's origin is in the Americas. However, Italians perfected this type for saucy comfort foods.",
      "choose":"Look for zucchini that are no longer than 6 to 8 inches. They should be firm and free of nicks and cuts. Darker, thinner zucchinis can have richer flavor.",
-     "store":"Keep zucchini tightly wrapped in the refrigerator.",
+     "store":"Wrap tightly and store in refrigerator.",
      "peakMonths":[
-        7
+        6
      ],
-     "popularity":5,
+     "popularity":6,
      "prepared":true
   }
 ]
