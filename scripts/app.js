@@ -70,6 +70,9 @@
 
     // create cards and add them to DOM
     itemsSorted.forEach(function(item) {
+      // let st = item.name + ': pop: ' + app.getPopularityScore(item);
+      // st += ': sea: ' + app.getSeasonLengthScore(item)+ ': peak: ' + app.getProximityToPeakScore(item);
+      // console.log(st);
       app.addCard(app.getCard(item));
     });
 
@@ -92,15 +95,13 @@
     card.querySelector('.item-description').textContent = item.description;
     card.querySelector('.item-image').setAttribute('alt', item.name);
     card.querySelector('.item-image').setAttribute('src', 'images/produce/'+item.label+'.jpg');
-    card.querySelector('.item-info-how-to-choose-details').textContent = item.choose;
+    card.querySelector('.item-info-name').textContent = item.name;
     if (item.choose) {
-      card.querySelector('.item-info-how-to-choose-details').textContent = item.choose;
-      card.querySelector('.item-info-how-to-choose-title').textContent += ' ' + item.name;
+      card.querySelector('.item-info-how-to-choose-text').textContent = item.choose;
       card.querySelector('.item-info-how-to-choose').removeAttribute('hidden');
     }
     if (item.store) {
-      card.querySelector('.item-info-how-to-store-details').textContent = item.store;
-      card.querySelector('.item-info-how-to-store-title').textContent += ' ' + item.name;
+      card.querySelector('.item-info-how-to-store-text').textContent = item.store;
       card.querySelector('.item-info-how-to-store').removeAttribute('hidden');
     }
     card.removeAttribute('hidden');
@@ -140,20 +141,15 @@
 
     // assume whole number for defaults:
     // 8 would be Sept 15th. Not intuitive!
-    let day = 15;
+    let day = 1;
     let month = peakAvg;
 
-    // if avg is between two whole numbers as described above:
     if (Number.isInteger(peakAvg)) {
-      if (month === 11) {
-        month = 1;
-      } else {
-        month++;
-      }
-      day = 1;
+      day = 15;
+    } else {
+      month = Math.ceil(peakAvg);
     }
-
-    let peakDate = new Date(today.getFullYear(), Math.floor(peakAvg), day);
+    let peakDate = new Date(today.getFullYear(), month, day);
     // days peak is from today:
     let diff = Math.abs(peakDate - today);
     let score = 100 - (Math.floor(diff/ (24*60*60*1000)));
