@@ -28,8 +28,8 @@
     cardTemplate: document.querySelector('.cardTemplate'),
     container: document.querySelector('.container'),
     toggleInfo: function(card) {
-      let info = card.getElementsByClassName('item-info')[0]
-      if ($(info).hasClass('reveal')) {
+      let info = card.getElementsByClassName('item-info')[0];
+      if (info.classList.contains('reveal')) {
         info.setAttribute('class', 'item-info hide');
       } else {
         info.setAttribute('class', 'item-info reveal');

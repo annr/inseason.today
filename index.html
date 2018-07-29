@@ -59,7 +59,36 @@
       </div>
      </div>
   </main>
+  
   <script src="scripts/app.js" async></script>
-  <script src="scripts/menu.js" async></script>
+  <script>
+    (function() {
+      'use strict';
+
+      let header = document.querySelector('.header');
+      let body = document.querySelector('body');
+
+      document.getElementById('menu-toggle').addEventListener('click', function() {
+        toggleMenuList();
+      });
+
+      let toggleMenuList = function() {
+        if (header.classList.contains('menu--show')) {
+          header.setAttribute('class', 'header menu--hide');
+        } else {
+          header.setAttribute('class', 'header menu--show');
+        }
+      }
+
+      // write add footer after load
+      setTimeout(function() {
+        let footer = document.createElement('footer');
+        let year = new Date().getFullYear();
+        footer.textContent = 'Copyright ' + year + ' In Season Today';
+        body.appendChild(footer);
+      }, 0);
+
+    })();
+  </script>
 </body>
 </html>
