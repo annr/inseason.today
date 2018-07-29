@@ -45,7 +45,7 @@
 
     // create cards and add them to DOM
     itemsSorted.forEach(function(item) {
-      app.addRecord(app.getRecord(item));
+      app.addChartRecord(app.getChartRecord(item));
     });
 
     // Update happens so fast, spinner will never show. Uncomment here and 
@@ -58,23 +58,30 @@
     // }
   };
 
-  app.getRecord = function(item) {
+  app.getChartRecord = function(item) {
     //let row = app.produceRow.cloneNode(true);
     let row = document.createElement('tr');
     let nameCol = document.createElement('td');
     nameCol.setAttribute('class', 'name-cell');
     nameCol.textContent = item.name;
+    if (item.months.includes((new Date()).getMonth())) {
+      row.setAttribute('class', 'seasonal-produce');
+    }
     row.appendChild(nameCol);
     [...Array(12).keys()].forEach(function(month) {
       let col = document.createElement('td');
+      let classStr = '';
+      if (month === (new Date()).getMonth()) {
+        classStr += 'current-month ';
+      }
       if (item.peakMonths.includes(month)) {
         col.textContent = '👍';
-        col.setAttribute('class', 'excellent');
+        col.setAttribute('class', classStr + 'peak');
       } else if (item.months.includes(month)) {
         col.textContent = '';
-        col.setAttribute('class', 'seasonal');
+        col.setAttribute('class', classStr + 'seasonal');
       } else {
-        col.setAttribute('class', 'not-in-season');
+        col.setAttribute('class', classStr + 'not-in-season');
         col.textContent = '';
       }
       row.appendChild(col);
@@ -82,7 +89,7 @@
     return row;
   }
 
-  app.addRecord = function(record) {
+  app.addChartRecord = function(record) {
     app.container.appendChild(record);
   }
 
