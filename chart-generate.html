@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover which fruits and vegetables are in season today. Eat the healthiest and most delicious produce.">
+  <meta name="keywords" content="in season today, seasonal today, what to eat, seasonal fruits, seasonal vegetables, seasonal eating">
+  <meta name="author" content="Ann Robson">
+  <title>Seasonal Produce Chart - In Season Today</title>
+  <link rel="stylesheet" type="text/css" href="styles/inline.css">
+  <!-- TODO add manifest here -->
+</head>
+<body>
+  <header class="header">
+      <a class="site-name" href="/">In Season Today</a>
+      <div class="icon-hamburger icon-right" id="menu-toggle">
+        <svg class="hamburger" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path fill="#fff" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </div>
+      <ul id="menu-list" class="menu-list menu--show">
+        <li class="menu-item">
+          <a class="menu-link" href="/">Today</a>
+        </li>
+        <li class="menu-item active">
+            <a class="menu-link" href="/chart.html">Chart <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="menu-item">
+            <a class="menu-link" href="/about.html">About</a>
+        </li>
+      </ul>
+    </header>
+  <main class="main generic">
+    <h1>Seasonal Produce Chart</h1>
+    <div class="chart-container">
+      <table class="chart">
+        <thead id="chart-head">
+        <tr>
+          <th class="product-name-heading">Product</th>
+          <th class="month january"><abbr title="January">Jan</abbr></th>
+          <th class="month february"><abbr title="February">Feb</abbr></th>
+          <th class="month march"><abbr title="March">Mar</abbr></th>
+          <th class="month april"><abbr title="April">Apr</abbr></th>
+          <th class="month may"><abbr title="May">May</abbr></th>
+          <th class="month june"><abbr title="June">Jun</abbr></th>
+          <th class="month july"><abbr title="July">Jul</abbr></th>
+          <th class="month august"><abbr title="August">Aug</abbr></th>
+          <th class="month september"><abbr title="September">Sep</abbr></th>
+          <th class="month october"><abbr title="October">Oct</abbr></th>
+          <th class="month november"><abbr title="November">Nov</abbr></th>
+          <th class="month december"><abbr title="December">Dec</abbr></th>
+        </tr>
+      </thead>
+      <tbody id="chart-body">
+      </tbody>
+      </table>
+    </div>
+  </main>
+  <script src="scripts/chart.js" async></script>
+  <script>
+        (function() {
+        'use strict';
+      
+        let header = document.querySelector('.header');
+        let body = document.querySelector('body');
+      
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+          toggleMenuList();
+        });
+      
+        let toggleMenuList = function() {
+          if (header.classList.contains('menu--show')) {
+            header.setAttribute('class', 'header menu--hide');
+          } else {
+            header.setAttribute('class', 'header menu--show');
+          }
+        }
+      
+        // write add footer after load
+        setTimeout(function() {
+          let footer = document.createElement('footer');
+          let year = new Date().getFullYear();
+          footer.textContent = 'Copyright ' + year + ' In Season Today';
+          body.appendChild(footer);
+        }, 0);
+      
+      })();
+    </script>
+</body>
+</html>
