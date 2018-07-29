@@ -22,16 +22,16 @@ html, body {
   padding: 0;
   margin: 0;
   font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
-  font-display: optional;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+}
 
 body.today {
-  background: #ececec; }
+  background: #ececec;
+}
 
 a {
   text-decoration: none;
@@ -56,21 +56,20 @@ a {
 }
 
 .notice {
-  margin-bottom: 0;
+  font-size: 13px;
   margin-left: 10px;
   margin-right: 10px;
   background-color: #fcf8e3;
-  border-color: #faf2cc;
   color: #8a6d3b;
   padding: .75rem 1.25rem;
-  border: 1px solid transparent;
   border-radius: .25rem;
 }
 
 .header {
-  font-size: 20px;
+  font-size: 1.25rem;
   width: 100%;
   height: 56px;
+  line-height: 1.3;
   color: #FFF;
   background: #FF8800;
   position: fixed;
@@ -83,9 +82,11 @@ a {
 abbr {
   text-decoration: none;
 }
+
 .sr-only {
   display: none;
 }
+
 .site-name {
   color: #fff;
   font-weight: 400;
@@ -100,6 +101,7 @@ abbr {
   cursor: pointer;
   padding: 10px;
 }
+
 .menu-list {
   list-style: none;
   margin: 0;
@@ -109,7 +111,6 @@ abbr {
 .menu-list li {
   float: left;
   margin-left: 20px;
-  display: list-item;
 }
 
 .menu-list a {
@@ -132,10 +133,10 @@ main {
   min-width: 300px;
   margin: 0 auto;
 }
+
 main.generic {
   max-width: 900px;
 }
-
 
 footer {
   margin-top: 30px;
@@ -186,10 +187,7 @@ footer {
 .chart td, .chart th {
   padding: 0.5rem;
   font-size: 18px;
-}
-
-.chart td.normal-border, .chart th.normal-border {
-  border: 1px solid #cccccc;
+  border: 1px solid #bbb;
 }
 
 .month {
@@ -248,21 +246,32 @@ footer {
   background-color: #7C3D75;
 }
 
-.excellent, .seasonal, .not-in-season {
+tr.seasonal-produce td.name-cell {
+ background-color: #f8eac3
+}
+
+.peak, .seasonal, .not-in-season {
   text-align: center;
 }
-.excellent {
+
+/* default colors */
+
+td.peak {
   background-color: #22b411;
 }
 
-.seasonal {
+td.seasonal {
   background-color: #55da46;
 }
 
-.not-in-season {
+td.not-in-season {
   background-color: #efefef;
 }
 
+table.chart td.current-month {
+  border-right: #000 solid 2px;
+  border-left: #000 solid 2px;
+}
 /* end chart styles */
 
 @media (max-width: 900px) and (min-width: 600px) {
@@ -335,21 +344,21 @@ footer {
     display: block;
     float: none;
     line-height: 1;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 15px;
   }
 
   .notice {
     margin-left: 0;
     margin-right: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
   }
 
   .produce-item {
     display: flex;
     align-items: flex-start;
     padding: 1rem;
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.75rem 0;
   }
 
   .produce-item > img {
@@ -434,20 +443,6 @@ footer {
     padding: 0.1rem;
     font-size: 10px;
   }
-
-  .current-month {
-    border-right: black dashed 1px !important;
-    border-left: black dashed 1px !important;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-  }
-}
-
-.current-month {
-  border-right: black dashed 2px;
-  border-left: black dashed 2px;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
 }
 
 .activator {
