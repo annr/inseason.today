@@ -97,12 +97,12 @@
     card.querySelector('.item-image').setAttribute('src', 'images/produce/'+item.label+'.jpg');
     card.querySelector('.item-info-name').textContent = item.name;
     if (item.choose) {
-      card.querySelector('.item-info-how-to-choose-text').textContent = item.choose;
-      card.querySelector('.item-info-how-to-choose').removeAttribute('hidden');
+      card.querySelector('.item-info-choose-text').textContent = item.choose;
+      card.querySelector('.item-info-choose').removeAttribute('hidden');
     }
     if (item.store) {
-      card.querySelector('.item-info-how-to-store-text').textContent = item.store;
-      card.querySelector('.item-info-how-to-store').removeAttribute('hidden');
+      card.querySelector('.item-info-store-text').textContent = item.store;
+      card.querySelector('.item-info-store').removeAttribute('hidden');
     }
     card.removeAttribute('hidden');
     card.setAttribute('data-sort', item.sortValue);
