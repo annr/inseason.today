@@ -72,6 +72,7 @@
     itemsSorted.forEach(function(item) {
       // let st = item.name + ': pop: ' + app.getPopularityScore(item);
       // st += ': sea: ' + app.getSeasonLengthScore(item)+ ': peak: ' + app.getProximityToPeakScore(item);
+      // st += ': score ' + app.getSortValue(item);
       // console.log(st);
       app.addCard(app.getCard(item));
     });
@@ -131,7 +132,6 @@
   app.getProximityToPeakScore = function(item) {
     let peakAvg = app.getPeakAverage(item.peakMonths);
     // absolute best day for this produce
-    let today = new Date();
 
     // this logic is a little complicated:
     // we use coarse month values to store peak range
@@ -149,9 +149,9 @@
     } else {
       month = Math.ceil(peakAvg);
     }
-    let peakDate = new Date(today.getFullYear(), month, day);
-    // days peak is from today:
-    let diff = Math.abs(peakDate - today);
+    let peakDate = new Date(app.testDate.getFullYear(), month, day);
+    // days peak is from testDate (usu today):
+    let diff = Math.abs(peakDate - app.testDate);
     let score = 100 - (Math.floor(diff/ (24*60*60*1000)));
     if (score < 0) {
       score = 0;

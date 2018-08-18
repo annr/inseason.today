@@ -9,9 +9,9 @@
         9,
         10
      ],
-     "description":"Apples are to fall what peaches and nectarines are to summer -- somehow the entire season is summed up in a crisp, sweet bite.",
-     "choose":"Select apples that are smooth-skinned, deeply colored and glossy.",
-     "store":"Apples should be stored as cold as possible. Keep them in the bottom drawer of the refrigerator. A perforated plastic bag works best, as it allows some of the moisture to escape while keeping the apples crisp.",
+     "description":"The goldenrod is yellow, The corn is turning brown, The trees in apple orchards With fruit are bending down - Helen Hunt Jackson",
+     "choose":"Select apples that look like a witch is trying to kill you; beautiful color and smooth, shiny skin.",
+     "store":"Keep apples stored very cold in your refrigerator's bottom drawer. A vented plastic bag is best for letting moisture escape while keeping apples crisp.",
      "peakMonths":[
         8,
         9
@@ -69,9 +69,9 @@
         8,
         9
      ],
-     "description":"Asian pear varieties can differ quite remarkably. Shinseiki has a very crisp texture and a flavor like honey, walnuts and flowers; 20th Century is crisp with a flavor like a sparkling combination of apples and citrus; Kosui has a vanilla undertone; and Chojuro is buttery with a caramel sweetness.",
-     "choose":"Asian pears feel hard as rocks, but they actually bruise quite easily. Russet varieties should be deep golden brown; smooth-skinned round fruit should be yellow, not green, and smooth-skinned pear-shaped fruit will be pale green.",
-     "store":"Asian pears need to be refrigerated.",
+     "description":"The creamy white flesh of this fruit is remarkably juicy with a sweet, low acid flavor and a fragrant aroma.",
+     "choose":"Smooth-skinned round pears should be yellow, and smooth-skinned pear-shaped pears should be pale green. Asian pears are very hard but bruise easily.",
+     "store":"Keep refrigerated.",
      "peakMonths":[
         8
      ],
@@ -150,9 +150,9 @@
         8,
         9
      ],
-     "description":"There is nothing at the farmers market that sums up the late summer-early fall season like the mounds of brightly colored peppers that seem to be everywhere. Their colors – red and yellow, even purple and brown – are so saturated they seem to have been designed for the painterly golden light at this time of year. And they taste as good as they look.",
-     "choose":"Look for peppers that are firm, deeply colored and glossy. Peppers that have the straightest sides will be the easiest to peel.",
-     "store":"Keep peppers in the refrigerator, tightly wrapped in a plastic bag.",
+     "description":"This mild pepper cultivar was developed in Hungary in the 1920s. Red bell peppers are simply ripe green bell peppers.",
+     "choose":"Choose firm and deeply colored bell peppers. Green peppers are less sweet and slightly more bitter than yellow or orange peppers, while red bell peppers are the sweetest.",
+     "store":"Wrap bell peppers and keep refridgerated.",
      "peakMonths":[
         8,
         9
@@ -795,11 +795,11 @@
         8
      ],
      "description":"There's nothing peachier than perfectly seasonal peaches. Well, except for nectarines, which are an alternative for those who who are put off by fuzzy fruit.",
-     "choose":"Look for good, deep orange-golden color but most importantly, smell them -- they should be strongly fragrant.",
-     "store":"Ripe peaches will give a little bit when held in the hand with pressure. They continue to ripen a bit at home.",
+     "choose":"Feel them -- they should be heavy for their size. And smell them -- they should be strongly fragrant.",
+     "store":"Ripe peaches will give a little when gently squeezed. They continue to ripen a bit at home.",
      "peakMonths":[
         6,
-        7
+        7 
      ],
      "popularity":7,
      "prepared":false
@@ -813,9 +813,9 @@
         8,
         9
      ],
-     "description":"Bartletts are the predominate pear grown in California, and there are two growing sites with very different fruit. The earliest pears are harvested starting in August around the Sacramento delta area. They are fine, but the ones picked in September and October from the hilly orchards of Lake and Mendocino counties are much better.",
-     "choose":"The best perfectly ripened Bartlett pears will be golden and fragrant and will have a slight softness at the neck. Don't worry if the fruit shows some russeting – that's only skin-deep and doesn't affect the flavor.",
-     "store":"Pears will continue to ripen off the tree (indeed, they really have to ripen off the tree to avoid a woody texture). So if your pears are a little green and firm, just leave them at room temperature and they'll finish up nicely. Then you can refrigerate them.",
+     "description":"Ever notice how pears are a favorite ingredient at top restaurants? Bartlett pears are the most popular of the many pear varieties grown in California.",
+     "choose":"Bartlett pears are ripe when gold but can be purchased green. Russeting, a brown, corky texture, should not affect flavor.",
+     "store":"Pears ripen at room temperature, turning from bright green to mild yellow, and yielding to gentle pressure. Refrigerate.",
      "peakMonths":[
         8
      ],
@@ -850,7 +850,7 @@
         6,
         7
      ],
-     "description":"Brined, dried, made into wine, jams, dumplings... Plums are the meat of onigiri, the salt vehicle of saladitos. Even so, I don't think we quite know plum's potential.",
+     "description":"Brined, dried, made into wine, jams, dumplings... Plums are the meat of onigiri, the salt vehicle of saladitos.",
      "choose":"Choose deeply colored plums that are shiny and firm but not hard.",
      "store":"Plums continue to ripen after harvest. If your fruit feels a little too hard, leave it at room temperature for a day or two. After that, refrigerate.",
      "peakMonths":[
@@ -914,24 +914,6 @@
      "store":"Refrigerate in a tightly sealed plastic bag.",
      "peakMonths":[
         11
-     ],
-     "popularity":5,
-     "prepared":false
-  },
-  {
-     "name":"Shelling Beans",
-     "includes":"",
-     "label":"shelling-beans",
-     "months":[
-        7,
-        8
-     ],
-     "description":"If you're at the farmers market and see what looks like a wilting mound of what must once have been beautiful string beans tinted with patterns of cream and crimson, don't pass them by. These are shelling beans: varieties that are normally grown for drying but which can be sold (and cooked) fresh. They have a sweet, subtle flavor that's somewhere between the earthy complexity of dried and the green, vegetal taste of fresh. The season lasts for only two or three weeks, so get them while you can.",
-     "choose":"Look for pods that have begun to shrivel and dry, with full-sized beans inside. These will be the most mature and have the best flavor.",
-     "store":"If you're going to use the beans within a couple of days, simply refrigerate them in the pods. If you're going to store them for a little longer, shuck them first.",
-     "peakMonths":[
-        7,
-        8
      ],
      "popularity":5,
      "prepared":false
@@ -1090,12 +1072,12 @@
         9
      ],
      "description":"Cooks tend to regard nuts as staples, like flour or butter. But they do have a season and when you get them right after harvest, they taste fresher and their texture is almost creamy.",
-     "choose":"With whole nuts, choose examples that are heavy for their size. With shelled nuts, look for meat that's plump and pale and avoid any that are shrunken and shriveled.",
-     "store":"Whole nuts can be stored at room temperature for several weeks. Shelled nuts must be refrigerated immediately. Even better: Freeze them in a tightly sealed bag and they'll last for up to a year.",
+     "choose":"When in the shell, choose nuts that are heavy for their size. With shelled nuts, look for plump meat that are not shrunken and shriveled.",
+     "store":"Nuts in their shells can be stored at room temperature for several weeks. If the meat is exposed, keep tightly sealed and refrigerate. To keep over a month, freeze nuts.",
      "peakMonths":[
         8
      ],
-     "popularity":5,
+     "popularity":2,
      "prepared":false
   },
   {
