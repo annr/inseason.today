@@ -1,7 +1,7 @@
 // Copyright 2018 Ann Robson
 // MIT
 
-(function() {
+(function () {
   'use strict';
 
   let app = {
@@ -19,10 +19,10 @@
    ****************************************************************************/
 
   // Shows seasonal produce 
-  app.buildTable = function() {
+  app.buildTable = function () {
     let items = app.produce;
 
-    var itemsSorted = items.sort(function(item1, item2) {
+    var itemsSorted = items.sort(function (item1, item2) {
       // sort the list descending
       if (item1.name > item2.name) {
         return 1;
@@ -33,7 +33,7 @@
     });
 
     // create cards and add them to DOM
-    itemsSorted.forEach(function(item) {
+    itemsSorted.forEach(function (item) {
       app.addChartRecord(app.getChartRecord(item));
     });
 
@@ -47,7 +47,7 @@
     // }
   };
 
-  app.getChartRecord = function(item) {
+  app.getChartRecord = function (item) {
     //let row = app.produceRow.cloneNode(true);
     let row = document.createElement('tr');
     let nameCol = document.createElement('td');
@@ -57,7 +57,7 @@
       row.setAttribute('class', 'seasonal-produce');
     }
     row.appendChild(nameCol);
-    [...Array(12).keys()].forEach(function(month) {
+    [...Array(12).keys()].forEach(function (month) {
       let col = document.createElement('td');
       let classStr = '';
       if (month === (new Date()).getMonth()) {
@@ -78,7 +78,7 @@
     return row;
   };
 
-  app.addChartRecord = function(record) {
+  app.addChartRecord = function (record) {
     app.container.appendChild(record);
   };
 
@@ -86,18 +86,16 @@
   // TODO add service worker code here
 
   loadJSON('data/produce.json',
-    function(data) {
+    function (data) {
       app.produce = data;
       app.buildTable();
     },
-    function(xhr) { throw new Error(xhr); }
+    function (xhr) { throw new Error(xhr); }
   );
 
-  function loadJSON(path, success, error)
-  {
+  function loadJSON(path, success, error) {
     var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function()
-    {
+    xhr.onreadystatechange = function () {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
           if (success)

@@ -16,7 +16,7 @@
     //spinner: document.querySelector('.loader'),
     cardTemplate: document.querySelector('.cardTemplate'),
     container: document.querySelector('.container'),
-    toggleInfo: function(card) {
+    toggleInfo: function (card) {
       let info = card.getElementsByClassName('item-info')[0];
       if (info.classList.contains('reveal')) {
         info.setAttribute('class', 'item-info hide');
@@ -40,14 +40,14 @@
     let today = app.testDate;
     let items = app.produce;
     let selectedItems = [];
-    items.forEach(function(item) {
+    items.forEach(function (item) {
       if (item.months.includes(today.getMonth())) {
         item.sortValue = app.getSortValue(item);
         selectedItems.push(item);
       }
     });
 
-    var itemsSorted = selectedItems.sort(function(item1, item2) {
+    var itemsSorted = selectedItems.sort(function (item1, item2) {
       // sort the list descending
       if (item1.sortValue > item2.sortValue) {
         return -1;
@@ -58,7 +58,7 @@
     });
 
     // create cards and add them to DOM
-    itemsSorted.forEach(function(item) {
+    itemsSorted.forEach(function (item) {
       // let st = item.name + ': pop: ' + app.getPopularityScore(item);
       // st += ': sea: ' + app.getSeasonLengthScore(item)+ ': peak: ' + app.getProximityToPeakScore(item);
       // st += ': score ' + app.getSortValue(item);
@@ -84,7 +84,7 @@
     card.querySelector('.item-name').textContent = item.name;
     card.querySelector('.item-description').textContent = item.description;
     card.querySelector('.item-image').setAttribute('alt', item.name);
-    card.querySelector('.item-image').setAttribute('src', 'images/produce/'+item.label+'.jpg');
+    card.querySelector('.item-image').setAttribute('src', 'images/produce/' + item.label + '.jpg');
     card.querySelector('.item-info-name').textContent = item.name;
     if (item.choose) {
       card.querySelector('.item-info-choose-text').textContent = item.choose;
@@ -101,9 +101,9 @@
 
   app.getSortValue = function (item) {
     let sortValue = app.getPopularityScore(item);
-    sortValue  += app.getSeasonLengthScore(item);
+    sortValue += app.getSeasonLengthScore(item);
     sortValue += app.getProximityToPeakScore(item);
-    return Math.floor(sortValue/3);
+    return Math.floor(sortValue / 3);
   };
 
   app.getPopularityScore = function (item) {
@@ -141,7 +141,7 @@
     let peakDate = new Date(app.testDate.getFullYear(), month, day);
     // days peak is from testDate (usu today):
     let diff = Math.abs(peakDate - app.testDate);
-    let score = 100 - (Math.floor(diff/ (24*60*60*1000)));
+    let score = 100 - (Math.floor(diff / (24 * 60 * 60 * 1000)));
     if (score < 0) {
       score = 0;
     }
@@ -150,10 +150,10 @@
 
   app.getPeakAverage = function (peakMonths) {
     let sum = 0;
-    for( let i = 0; i < peakMonths.length; i++ ){
-      sum += parseInt( peakMonths[i], 10 ); //don't forget to add the base
+    for (let i = 0; i < peakMonths.length; i++) {
+      sum += parseInt(peakMonths[i], 10); //don't forget to add the base
     }
-    return sum/peakMonths.length;
+    return sum / peakMonths.length;
   };
 
   //NEEDS WORK. CURRENTLY WON'T WORK FOR PRODUCE THAT IS SEASONAL OVER WINTER. 11-3, for example.
@@ -179,14 +179,14 @@
   //   return app.peakAverage(item.peakMonths) > today.getMonth();
   // }
 
-  app.prepareHandlers = function(card) {
+  app.prepareHandlers = function (card) {
     // add card toggle handler
-    card.addEventListener('click', function() {
+    card.addEventListener('click', function () {
       app.toggleInfo(this);
     });
   };
 
-  app.addCard = function(card) {
+  app.addCard = function (card) {
     app.container.appendChild(card);
     app.prepareHandlers(card);
   };
@@ -196,18 +196,16 @@
   // TODO add service worker code here
 
   loadJSON('data/produce.json',
-    function(data) {
+    function (data) {
       app.produce = data;
       app.updateSeasonal();
     },
-    function(xhr) { throw new Error(xhr); }
+    function (xhr) { throw new Error(xhr); }
   );
 
-  function loadJSON(path, success, error)
-  {
+  function loadJSON(path, success, error) {
     const xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function()
-    {
+    xhr.onreadystatechange = function () {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
           if (success)
