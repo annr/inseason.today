@@ -1,18 +1,7 @@
 // Copyright 2018 Ann Robson
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//      http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// MIT
 
-(function() {
+(function () {
   'use strict';
 
   let urlParams = new URLSearchParams(window.location.search);
@@ -46,14 +35,14 @@
    ****************************************************************************/
 
   // Shows seasonal produce 
-  app.updateSeasonal = function() {
+  app.updateSeasonal = function () {
     //let today = new Date();
     let today = app.testDate;
     let items = app.produce;
     let selectedItems = [];
     items.forEach(function(item) {
       if (item.months.includes(today.getMonth())) {
-        item.sortValue = app.getSortValue(item)
+        item.sortValue = app.getSortValue(item);
         selectedItems.push(item);
       }
     });
@@ -87,7 +76,7 @@
     // }
   };
 
-  app.getCard = function(item) {
+  app.getCard = function (item) {
     // add card to UI
     let card = app.cardTemplate.cloneNode(true);
     //let backgroundImageStyleValue = 'background-image: url(images/produce/'+ item.label + '.jpg);'
@@ -108,28 +97,28 @@
     card.removeAttribute('hidden');
     card.setAttribute('data-sort', item.sortValue);
     return card;
-  }
+  };
 
-  app.getSortValue = function(item) {
+  app.getSortValue = function (item) {
     let sortValue = app.getPopularityScore(item);
     sortValue  += app.getSeasonLengthScore(item);
     sortValue += app.getProximityToPeakScore(item);
     return Math.floor(sortValue/3);
-  }
+  };
 
-  app.getPopularityScore = function(item) {
+  app.getPopularityScore = function (item) {
     if (!item.popularity) {
       return 50;
     }
     return item.popularity * 10;
-  }
+  };
 
-  app.getSeasonLengthScore = function(item) {
+  app.getSeasonLengthScore = function (item) {
     // if the produce is only seasonal for one month, make the score a perfect 100. 
     return 110 - (item.months.length * 10);
-  }
+  };
 
-  app.getProximityToPeakScore = function(item) {
+  app.getProximityToPeakScore = function (item) {
     let peakAvg = app.getPeakAverage(item.peakMonths);
     // absolute best day for this produce
 
@@ -157,28 +146,28 @@
       score = 0;
     }
     return score;
-  }
+  };
 
-  app.getPeakAverage = function(peakMonths) {
+  app.getPeakAverage = function (peakMonths) {
     let sum = 0;
     for( let i = 0; i < peakMonths.length; i++ ){
-        sum += parseInt( peakMonths[i], 10 ); //don't forget to add the base
+      sum += parseInt( peakMonths[i], 10 ); //don't forget to add the base
     }
     return sum/peakMonths.length;
-  }
+  };
 
   //NEEDS WORK. CURRENTLY WON'T WORK FOR PRODUCE THAT IS SEASONAL OVER WINTER. 11-3, for example.
   // also handle cases where it's annual -- goes all the way around the year for any month.
-  app.betweenStartAndEndMonths = function(item, thisMonth) {
+  app.betweenStartAndEndMonths = function (item, thisMonth) {
     if (item.startMonth > item.endMonth) {
       // season must start in the winter
       // throw new Error("this does not work yet.");
       // cop-out and don't show that item for now.
       return false;
     } else {
-      return thisMonth >= item.startMonth && thisMonth <= item.endMonth
+      return thisMonth >= item.startMonth && thisMonth <= item.endMonth;
     }
-  }
+  };
 
   // app.isOverPeak = function(item) {
   //   let today = new Date();
@@ -190,28 +179,17 @@
   //   return app.peakAverage(item.peakMonths) > today.getMonth();
   // }
 
-  app.placeSortedInList = function(card, sort) {
-    // figure out where to put the item:
-    // loop through cards:
-    app.container.childNodes.forEach(function(child) {
-      // find node to append
-      if (Number.parseInt(child.getAttribute('data-sort')) < sortValue) {
-        // put it before this node:
-      }
-    });
-  }
-
   app.prepareHandlers = function(card) {
     // add card toggle handler
-    card.addEventListener('click', function(event) {
+    card.addEventListener('click', function() {
       app.toggleInfo(this);
     });
-  }
+  };
 
   app.addCard = function(card) {
     app.container.appendChild(card);
     app.prepareHandlers(card);
-  }
+  };
 
   // TODO add startup code here
 
@@ -222,25 +200,25 @@
       app.produce = data;
       app.updateSeasonal();
     },
-    function(xhr) { console.error(xhr); }
+    function(xhr) { throw new Error(xhr); }
   );
 
   function loadJSON(path, success, error)
   {
-      var xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = function()
-      {
-          if (xhr.readyState === XMLHttpRequest.DONE) {
-              if (xhr.status === 200) {
-                  if (success)
-                      success(JSON.parse(xhr.responseText));
-              } else {
-                  if (error)
-                      error(xhr);
-              }
-          }
-      };
-      xhr.open("GET", path, true);
-      xhr.send();
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          if (success)
+            success(JSON.parse(xhr.responseText));
+        } else {
+          if (error)
+            error(xhr);
+        }
+      }
+    };
+    xhr.open('GET', path, true);
+    xhr.send();
   }
 })();
