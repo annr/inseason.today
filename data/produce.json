@@ -404,9 +404,9 @@
       4,
       5
     ],
-    "description": "One of the most popular of all farmers market vegetables, favas have ascended to culinary stardom contrary to all reason. They're expensive. And you have to buy a mountain to wind up with a molehill. (It takes more than 3 pounds of pods to make enough for two respectable servings of beans.) And then you have to peel them a second time to remove that fine pale skin that surrounds each bean. But still, is there any taste that promises spring as much as that bright flash of green you get from a fava bean?",
-    "choose": "Select pods that are firm and filled out along the entire length. If you choose the pods with the smallest bumps, you'll get the youngest beans and they won't need to go through the second peeling. (Further hint: If the secondary peels covering the individual beans are not white, they don't need to be removed.)",
-    "store": "Store favas in the refrigerator in a tightly sealed plastic bag. They'll last at least a week.",
+    "description": "Favas, or \"broad beans\", are an ur-food; meaning that they were cultivated in anceint Mesopatamia and are fundamental to human civilization. The flavor of Spring, favas can taste wonderfully fresh.",
+    "choose": "Select pods that are bright with no scarring. Favas should be as fresh as possible. Tasting them raw, they should be sweet and a bit juicy.",
+    "store": "Store favas in the refrigerator in a tightly sealed plastic bag. They'll last two weeks, but are best eaten within a week.",
     "peakMonths": [
       3,
       4
@@ -539,9 +539,9 @@
       3,
       4
     ],
-    "description": "How do you know winter is finally closing out and spring is coming? Green garlic in the farmers market is about as reliable an indicator as any. Originally the thinnings from garlic plantings, it became so popular farmers are growing it on purpose.",
-    "choose": "Green garlic comes in a range of sizes, from slim as a green onion to almost fully formed heads. Whatever the size, choose garlic that's firm with no soft spots. If a hard papery skin has formed, it will have to be removed.",
-    "store": "Store green garlic in the refrigerator, but keep it tightly sealed. It's flavor may be mild, but its aroma is pungent and will permeate everything if you're not careful.",
+    "description": "Green garlic is the same plant as bulb garlic, but harvested early. Less spicy and mellower than bulb garlic, green garlic has become a popular type, and is therefore more widely available.",
+    "choose": "Look for bright green leaves. Avoid yellow or slimy leaves.",
+    "store": "Refrigerate in a plastic bag. Prepare as you would a leek.",
     "peakMonths": [
       3
     ],
@@ -731,7 +731,7 @@
   {
     "name": "New Potatoes",
     "includes": "",
-    "label": "new potatoes",
+    "label": "new-potatoes",
     "months": [
       3,
       4

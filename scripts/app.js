@@ -6,6 +6,8 @@
 
   let urlParams = new URLSearchParams(window.location.search);
   let testDateParam = urlParams.get('testDate');
+  // Example: https://inseason.today/?testDate=10/31/2018
+  // for each of the months you can use open-all-views.sh
   let testDate = new Date();
   if (testDateParam !== null) {
     testDate = new Date(testDateParam);
